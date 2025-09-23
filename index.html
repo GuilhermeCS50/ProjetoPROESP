@@ -17,8 +17,7 @@
       <a href="#computer">Computador</a>
       <a href="#tools">Ferramentas Digitais</a>
       <a href="#tips">Dicas de Acessibilidade</a>
-      <a href="#quizzes">Quiz</a>
-      <a href="#authors">Autores</a>
+      <a href="#quiz">Teste Rápido</a>
     </nav>
 
     <main>
@@ -28,8 +27,8 @@
 
         <h3>Por que é importante?</h3>
         <ul>
-          <li>Facilita a comunicação com amigos e familiares.</li>
           <li>Ajuda nos estudos e no aprendizado.</li>
+          <li>Facilita a comunicação com amigos e familiares.</li>
           <li>Permite acessar serviços importantes como bancos, compras online e informações de saúde.</li>
         </ul>
       </section>
@@ -38,10 +37,10 @@
         <h2>💻 Conhecendo o Computador</h2>
         <p>Um computador tem várias partes importantes:</p>
         <ul>
-          <li><b>Monitor:</b> Onde vemos as imagens.</li>
-          <li><b>Teclado:</b> Usado para digitar letras e números.</li>
-          <li><b>Mouse:</b> Usado para clicar e mover na tela.</li>
           <li><b>Gabinete:</b> Onde ficam as peças principais do computador.</li>
+          <li><b>Monitor:</b> Onde vemos as imagens.</li>
+          <li><b>Mouse:</b> Usado para clicar e mover na tela.</li>
+          <li><b>Teclado:</b> Usado para digitar letras e números.</li>
         </ul>
 
         <h3>Como ligar e desligar?</h3>
@@ -52,10 +51,14 @@
         <h2>🛠 Ferramentas Digitais</h2>
         <p>No computador e no celular, usamos ferramentas do dia a dia:</p>
         <ul>
-          <li><b>Processador de Texto:</b> Escrever e salvar documentos.</li>
-          <li><b>Navegador:</b> Acessar a internet (Google Chrome, Firefox).</li>
-          <li><b>Email:</b> Criar e enviar mensagens eletrônicas.</li>
-          <li><b>Redes Sociais:</b> WhatsApp, Facebook e Instagram.</li>
+          <li><b>Apresentação de Slides:</b> Criar e exibir apresentações visuais, como o <a href="https://workspace.google.com/intl/pt-BR/products/slides/" target="_blank">Google Slides</a>.</li>
+          <li><b>Armazenamento em Nuvem:</b> Guardar e compartilhar arquivos online, como o <a href="https://workspace.google.com/intl/pt-BR/products/drive/" target="_blank">Google Drive</a>.</li>
+          <li><b>Email:</b> Criar e enviar mensagens eletrônicas, como o <a href="https://workspace.google.com/intl/pt-BR/gmail/" target="_blank">Gmail</a>.</li>
+          <li><b>Navegador:</b> Acessar a internet, como o <a href="https://www.google.com/intl/pt-BR/chrome/" target="_blank">Google Chrome</a> e <a href="https://www.firefox.com/pt-BR/" target="_blank">Firefox</a>.</li>
+          <li><b>Planilha Eletrônica:</b> Criar e organizar dados em tabelas, como o <a href="https://workspace.google.com/intl/pt-BR/products/sheets/" target="_blank">Google Sheets</a>.</li>
+          <li><b>Processador de Texto:</b> Escrever e salvar documentos, como o <a href="https://workspace.google.com/intl/pt-BR/products/docs/" target="_blank">Google Docs</a>.</li>
+          <li><b>Redes Sociais:</b> Comunicar-se, interagir e compartilhar, como o <a href="https://web.whatsapp.com/?locale=pt_BR" target="_blank">WhatsApp</a>, <a href="https://www.facebook.com/?locale=pt_BR" target="_blank">Facebook</a> e <a href="https://www.instagram.com/?locale=pt_BR" target="_blank">Instagram</a>.</li>
+          <li><b>Testes Online':</b> Realizar <a href="class-quizzes.html">questionários</a> relacionados aos conteúdos de aulas.</li>
         </ul>
       </section>
 
@@ -63,61 +66,47 @@
         <h2>♿ Dicas de Acessibilidade</h2>
         <p>Essas dicas podem ajudar a deixar a navegação mais fácil:</p>
         <ul>
-          <li>Aumentar o tamanho das letras na tela.</li>
-          <li>Ativar o modo alto contraste.</li>
-          <li>Usar programas que leem textos em voz alta.</li>
           <li>Ativar legendas automáticas em vídeos.</li>
+          <li>Ativar o modo alto contraste.</li>
+          <li>Aumentar o tamanho das letras na tela.</li>
+          <li>Usar programas que leem textos em voz alta.</li>
         </ul>
       </section>
 
-      <section id="quizzes" class="card">
-        <h2>🎯 Quiz Rápido</h2>
+      <section id="quiz" class="card flex-column">
+        <h2>🎯 Teste Rápido</h2>
 
-        <article class="quiz">
+        <article class="question">
           <p><b>Pergunta 1: </b> Qual parte do computador usamos para digitar?</p>
-          <button class="quiz-button" data-message="✅ Correto! O teclado é usado para digitar.">Teclado</button>
-          <button class="quiz-button" data-message="❌ Quase! O mouse serve para clicar, não digitar.">Mouse</button>
+          <button class="answer-button" data-message="✅ Correto! O teclado é usado para digitar.">Teclado</button>
+          <button class="answer-button" data-message="❌ Quase! O mouse serve para clicar, não digitar.">Mouse</button>
         </article>
 
-        <article class="quiz">
+        <article class="question">
           <p><b>Pergunta 2: </b> Qual programa usamos para navegar na internet?</p>
-          <button class="quiz-button" data-message="❌ Não! O Word serve para escrever textos.">Word</button>
-          <button class="quiz-button" data-message="✅ Isso mesmo! O navegador é usado para acessar a internet.">Navegador</button>
+          <button class="answer-button" data-message="❌ Não! O Word serve para escrever textos.">Word</button>
+          <button class="answer-button" data-message="✅ Isso mesmo! O navegador é usado para acessar a internet.">Navegador</button>
         </article>
 
-        <article class="quiz">
+        <article class="question hidden-content">
           <p><b>Pergunta 3: </b> Qual parte do computador usamos para ver as imagens e os programas?</p>
-          <button class="quiz-button" data-message="✅ Exato! O monitor é usado para ver imagens e programas.">Monitor</button>
-          <button class="quiz-button" data-message="❌ Não é isso. A impressora serve para imprimir no papel, não para mostrar na tela.">Impressora</button>
+          <button class="answer-button" data-message="✅ Exato! O monitor é usado para ver imagens e programas.">Monitor</button>
+          <button class="answer-button" data-message="❌ Não é isso. A impressora serve para imprimir no papel, não para mostrar na tela.">Impressora</button>
         </article>
 
-        <article class="quiz hidden-content">
+        <article class="question hidden-content">
           <p><b>Pergunta 4: </b> Qual dispositivo usamos para ouvir músicas ou sons no computador?</p>
-          <button class="quiz-button" data-message="❌ Não! A câmera serve para gravar vídeo e tirar fotos, não para ouvir.">Câmera</button>
-          <button class="quiz-button" data-message="✅ Correto! A caixa de som é usada para ouvir músicas ou sons.">Caixa de som</button>
+          <button class="answer-button" data-message="❌ Não! A câmera serve para gravar vídeo e tirar fotos, não para ouvir.">Câmera</button>
+          <button class="answer-button" data-message="✅ Correto! A caixa de som é usada para ouvir músicas ou sons.">Caixa de som</button>
         </article>
 
-        <article class="quiz hidden-content">
+        <article class="question hidden-content">
           <p><b>Pergunta 5: </b> Qual programa usamos para escrever textos no computador?</p>
-          <button class="quiz-button" data-message="❌ Quase! O Paint é usado para desenhar, não para escrever textos.">Paint</button>
-          <button class="quiz-button" data-message="✅ Isso mesmo! O Word serve para escrever textos.">Word</button>
+          <button class="answer-button" data-message="❌ Quase! O Paint é usado para desenhar, não para escrever textos.">Paint</button>
+          <button class="answer-button" data-message="✅ Isso mesmo! O Word serve para escrever textos.">Word</button>
         </article>
 
-        <button id="toggle-button">Mostrar Mais</button>
-      </section>
-
-      <section id="authors" class="card">
-        <h2>👨‍💻 Autores</h2>
-        <p>Esses são os desenvolvedores responsáveis pela criação do website:</p>
-        <ul>
-          <li>Gabriel Said.</li>
-          <li>Guilherme Soares da Silva.</li>
-          <li>Kennedy.</li>
-          <li>Miguel.</li>
-          <li>Sidney.</li>
-          <li>Taís.</li>
-          <li>Vitor Simões.</li>
-        </ul>
+        <button class="toggle-button">Mostrar Mais</button>
       </section>
     </main>
 

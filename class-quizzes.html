@@ -1,0 +1,246 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testes de Aula</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>🌐 Inclusão Digital</h1>
+      <p>Aprendendo tecnologia de forma simples e acessível</p>
+    </header>
+
+    <nav>
+      <a href="#quiz-1">Teste 1</a>
+      <a href="#quiz-2">Teste 2</a>
+      <a href="#quiz-3">Teste 3</a>
+      <a href="#quiz-4">Teste 4</a>
+      <a href="#quiz-5">Teste 5</a>
+      <a href="#quiz-6">Teste 6</a>
+    </nav>
+
+    <main>
+      <section id="quiz-1" class="card flex-column">
+        <h2>🎯 Teste 1</h2>
+
+        <article class="question">
+          <p><b>Pergunta 1: </b> O que é um computador?</p>
+          <button class="answer-button" data-message="❌ Não! Ele serve para muito mais do que só jogar.">Dispositivo de jogos</button>
+          <button class="answer-button" data-message="✅ Correto! O computador processa e guarda informações para várias tarefas.">Processador de Dados</button>
+        </article>
+
+        <article class="question">
+          <p><b>Pergunta 2: </b> Qual é a diferença entre hardware e software?</p>
+          <button class="answer-button" data-message="✅ Isso mesmo! Hardware é o que você toca, software é o que você usa na tela.">Peças e Programas</button>
+          <button class="answer-button" data-message="❌ Não! Está invertido.">Programas e Peças</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 3: </b> O que é o Windows?</p>
+          <button class="answer-button" data-message="✅ Exato! O Windows ajuda a controlar e organizar o uso do computador.">Sistema Operacional</button>
+          <button class="answer-button" data-message="❌ Quase! O Paint sim é para desenhar, mas o Windows é muito mais que isso.">Programa de Desenhar</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 4: </b> Qual destas atividades podemos fazer no computador?</p>
+          <button class="answer-button" data-message="❌ Não! Isso é só uma das tarefas, feita pela impressora, não pelo computador em si.">Imprimir Documentos</button>
+          <button class="answer-button" data-message="✅ Correto! Essas são funções principais do computador.">Navegar na Internet</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 5: </b> O que usamos para acessar jogos e notícias online?</p>
+          <button class="answer-button" data-message="✅ Isso mesmo! A internet nos conecta a jogos, notícias e muito mais.">Internet</button>
+          <button class="answer-button" data-message="❌ Não! A impressora não acessa a internet, só imprime documentos.">Impressora</button>
+        </article>
+
+        <button class="toggle-button">Mostrar Mais</button>
+      </section>
+
+      <section id="quiz-2" class="card flex-column">
+        <h2>🎯 Teste 2</h2>
+
+        <article class="question">
+          <p><b>Pergunta 1: </b> Para que serve o programa Word?</p>
+          <button class="answer-button" data-message="✅ Correto! O Word é usado para criar e formatar documentos de texto.">Criar Documentos</button>
+          <button class="answer-button" data-message="❌ Não! Isso é função do PowerPoint, não do Word.">Criar Slides</button>
+        </article>
+
+        <article class="question">
+          <p><b>Pergunta 2: </b> Para que serve o programa PowerPoint?</p>
+          <button class="answer-button" data-message="❌ Não! Isso é feito no Word.">Criar Cartas</button>
+          <button class="answer-button" data-message="✅ Exato! O PowerPoint é ideal para apresentações visuais.">Criar Apresentações</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 3: </b> Qual dessas funções é frequentemente associada ao Word?</p>
+          <button class="answer-button" data-message="✅ Correto! O Word tem várias opções de formatação de texto e parágrafo.">Formatar Textos</button>
+          <button class="answer-button" data-message="❌ Não! Transições são usadas no PowerPoint.">Transições de Slides</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 4: </b> Qual dessas funções é frequentemente associada ao PowerPoint?</p>
+          <button class="answer-button" data-message="❌ Não! Isso é feito no Word.">Justificar Textos</button>
+          <button class="answer-button" data-message="✅ Isso mesmo! Essa é uma das funções principais do PowerPoint.">Efeitos Especiais</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 5: </b> Qual é a principal diferença entre Word e PowerPoint?</p>
+          <button class="answer-button" data-message="✅ Correto! Cada programa tem uma função específica.">Textos vs. Slides</button>
+          <button class="answer-button" data-message="❌ Não! Apesar de serem parecidos, têm finalidades diferentes.">Não há Diferença</button>
+        </article>
+
+        <button class="toggle-button">Mostrar Mais</button>
+      </section>
+
+      <section id="quiz-3" class="card flex-column">
+        <h2>🎯 Teste 3</h2>
+
+        <article class="question">
+          <p><b>Pergunta 1: </b> O que é o Google?</p>
+          <button class="answer-button" data-message="✅ Correto! O Google nasceu como buscador e cresceu oferecendo vários serviços digitais.">Empresa Tecnológica</button>
+          <button class="answer-button" data-message="❌ Não! Isso é função de sites como o YouTube.">Programa de Vídeos</button>
+        </article>
+
+        <article class="question">
+          <p><b>Pergunta 2: </b> Qual é o serviço de e-mail oferecido pelo Google?</p>
+          <button class="answer-button" data-message="❌ Não! O PowerPoint é da Microsoft e serve para criar apresentações.">PowerPoint</button>
+          <button class="answer-button" data-message="✅ Isso mesmo! O Gmail é a plataforma de e-mail do Google.">Gmail</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 3: </b> Para que serve uma conta Google?</p>
+          <button class="answer-button" data-message="✅ Correto! Uma conta Google conecta você a todos os serviços da empresa.">Acessar Serviços</button>
+          <button class="answer-button" data-message="❌ Não! A pesquisa pode ser usada sem conta, mas para usar os serviços é necessário ter uma.">Somente Pesquisas</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 4: </b> Qual das opções é uma vantagem das ferramentas Google?</p>
+          <button class="answer-button" data-message="❌ Não! As ferramentas Google funcionam são úteis para qualquer dispositivo conectado à internet.">Nenhuma Vantagem</button>
+          <button class="answer-button" data-message="✅ Exato! Essa é uma grande vantagem das ferramentas Google.">Conectar Dispositivos</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 5: </b> Para que serve o Gmail?</p>
+          <button class="answer-button" data-message="❌ Não! Para editar imagens usamos outros programas, como o Google Fotos ou o Paint.">Editar Imagens</button>
+          <button class="answer-button" data-message="✅ Correto! Esse é o objetivo principal do Gmail.">Enviar E-mails</button>
+        </article>
+
+        <button class="toggle-button">Mostrar Mais</button>
+      </section>
+
+      <section id="quiz-4" class="card flex-column">
+        <h2>🎯 Teste 4</h2>
+
+        <article class="question">
+          <p><b>Pergunta 1: </b> Como podemos compartilhar um arquivo no Google?</p>
+          <button class="answer-button" data-message="✅ Correto! É assim que podemos enviar um arquivo para outra pessoa.">Criar um Link</button>
+          <button class="answer-button" data-message="❌ Não! Com o Google é possível compartilhar online sem precisar imprimir.">Imprimir e Entregar</button>
+        </article>
+
+        <article class="question">
+          <p><b>Pergunta 2: </b> O que acontece quando você cria um link de compartilhamento?</p>
+          <button class="answer-button" data-message="❌ Não! O link não apaga o arquivo, apenas permite acesso.">Apaga o Arquivo</button>
+          <button class="answer-button" data-message="✅ Exato! O link dá acesso ao conteúdo.">Permite Acesso</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 3: </b> Qual ferramenta do Google podemos usar para fazer reuniões online?</p>
+          <button class="answer-button" data-message="✅ Isso mesmo! O Google Meet é usado para videoconferências.">Google Meet</button>
+          <button class="answer-button" data-message="❌ Não! O Drive serve para armazenar arquivos, não para reuniões.">Google Drive</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 4: </b> Qual tipo de chamada a opção “iniciar reunião” no Google Meet cria?</p>
+          <button class="answer-button" data-message="❌ Não! Cada pessoa pode entrar da sua própria casa ou dispositivo.">Chamadas Locais</button>
+          <button class="answer-button" data-message="✅ Correto! Assim você pode participar em uma chamada virtual com outras pessoas.">Chamadas Virtuais</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 5: </b> Quais são vantagens de compartilhar arquivos pelo Google?</p>
+          <button class="answer-button" data-message="❌ Não! Justamente o contrário: cada um pode acessar do seu dispositivo.">Acesso Local</button>
+          <button class="answer-button" data-message="✅ Exato! Essa é a praticidade do compartilhamento online.">Acesso Online</button>
+        </article>
+
+        <button class="toggle-button">Mostrar Mais</button>
+      </section>
+
+      <section id="quiz-5" class="card flex-column">
+        <h2>🎯 Teste 5</h2>
+
+        <article class="question">
+          <p><b>Pergunta 1: </b> O que é o Gmail?</p>
+          <button class="answer-button" data-message="✅ Correto! O Gmail é usado para enviar e receber mensagens pela internet.">Serviço de E-mail</button>
+          <button class="answer-button" data-message="❌ Não! Isso é função do PowerPoint.">Ferramente de Slides</button>
+        </article>
+
+        <article class="question">
+          <p><b>Pergunta 2: </b> Qual destes recursos podemos encontrar na caixa de entrada do Gmail?</p>
+          <button class="answer-button" data-message="❌ Não! Esses pertencem ao PowerPoint, não ao Gmail.">Efeitos Visuais</button>
+          <button class="answer-button" data-message="✅ Exato! Esses são recursos básicos do Gmail.">Enviar Mensagens</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 3: </b> Para que serve o Google Drive?</p>
+          <button class="answer-button" data-message="✅ Correto! O Drive serve para armazenar diferentes tipos de arquivos.">Armazenar Arquivos</button>
+          <button class="answer-button" data-message="❌ Não! O Drive não é um editor de imagens, e sim um espaço de armazenamento.">Editar Imagens</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 4: </b> Quando falamos de profissões, o que a aula destacou?</p>
+          <button class="answer-button" data-message="❌ Não! Existem várias opções de carreiras para escolher.">Só uma Profissão</button>
+          <button class="answer-button" data-message="✅ Isso mesmo! A ideia é refletir sobre o futuro profissional.">Diferentes Carreiras</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 5: </b> Qual é uma vantagem de conhecer profissões diferentes desde cedo?</p>
+          <button class="answer-button" data-message="❌ Não! Falar de profissões é muito útil para o futuro de cada um.">Nenhuma Vantagem</button>
+          <button class="answer-button" data-message="✅ Correto! Conhecer carreiras ajuda a decidir o caminho profissional.">Planejar o Futuro</button>
+        </article>
+
+        <button class="toggle-button">Mostrar Mais</button>
+      </section>
+
+      <section id="quiz-6" class="card flex-column">
+        <h2>🎯 Teste 6</h2>
+
+        <article class="question">
+          <p><b>Pergunta 1: </b> O que são reuniões online?</p>
+          <button class="answer-button" data-message="✅ Correto! As reuniões online permitem conversar à distância.">Encontros Virtuais</button>
+          <button class="answer-button" data-message="❌ Não! Isso é diferente de uma reunião online.">Aulas Gravadas</button>
+        </article>
+
+        <article class="question">
+          <p><b>Pergunta 2: </b> Qual recurso pode destacar você em uma reunião online?</p>
+          <button class="answer-button" data-message="❌ Não! Impressora não tem relação com reuniões online.">Impressora</button>
+          <button class="answer-button" data-message="✅ Isso mesmo! Eles ajudam a destacar sua presença.">Emotes</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 3: </b> O que é segurança digital?</p>
+          <button class="answer-button" data-message="✅ Correto! Isso evita golpes e invasões.">Proteger Informações</button>
+          <button class="answer-button" data-message="❌ Não! Isso não é segurança digital.">Apagar Arquivos</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 4: </b> Qual é o objetivo da segurança digital?</p>
+          <button class="answer-button" data-message="❌ Não! Isso coloca sua conta em risco.">Compartilhar Senhas</button>
+          <button class="answer-button" data-message="✅ Exato! Assim seus dados ficam protegidos.">Evitar Golpes</button>
+        </article>
+
+        <article class="question hidden-content">
+          <p><b>Pergunta 5: </b> O que devemos fazer ao receber links suspeitos?</p>
+          <button class="answer-button" data-message="❌ Não! Isso é perigoso para o computador e seus dados.">Abrir Sempre</button>
+          <button class="answer-button" data-message="✅ Correto! Isso protege contra vírus e golpes.">Não Clicar</button>
+        </article>
+
+        <button class="toggle-button">Mostrar Mais</button>
+      </section>
+    </main>
+    <footer>
+      <p>🌟 Projeto de Inclusão Digital - Universidade Cruzeiro do Sul</p>
+      <p>🌟 Universidade Cruzeiro do Sul</p>
+    </footer>
+  </body>
+</html>

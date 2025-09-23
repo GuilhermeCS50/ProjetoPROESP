@@ -1,8 +1,8 @@
 // script to handle quiz button clicks and show alerts
 
-const quizButtons = document.querySelectorAll(".quiz-button");
+const answerButtons = document.querySelectorAll(".answer-button");
 
-quizButtons.forEach(button => {
+answerButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const message = button.getAttribute("data-message");
     alert(message);
@@ -11,17 +11,22 @@ quizButtons.forEach(button => {
 
 // script to toggle visibility of quiz content
 
-const moreContent = document.getElementsByClassName("quiz hidden-content");
-const toggleButton = document.getElementById("toggle-button");
+const toggleButtons = document.querySelectorAll(".toggle-button");
 
-let isContentVisible = false;
+toggleButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const quizSection = button.closest("section");
+    const moreContent = quizSection.querySelectorAll(".question.hidden-content");
 
-toggleButton.addEventListener("click", () => {
-  isContentVisible = !isContentVisible;
+    let isContentVisible = button.getAttribute("data-visible") === "true";
 
-  for (let i = 0; i < moreContent.length; i++) {
-    moreContent[i].style.display = isContentVisible ? "flex" : "none";
-  }
+    isContentVisible = !isContentVisible;
 
-  toggleButton.textContent = isContentVisible ? "Mostrar Menos" : "Mostrar Mais";
+    moreContent.forEach((item) => {
+      item.style.display = isContentVisible ? "flex" : "none";
+    });
+
+    button.textContent = isContentVisible ? "Mostrar Menos" : "Mostrar Mais";
+    button.setAttribute("data-visible", isContentVisible);
+  });
 });
