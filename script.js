@@ -30,3 +30,18 @@ toggleButtons.forEach((button) => {
     button.setAttribute("data-visible", isContentVisible);
   });
 });
+
+// =======================
+// botão de troca de tema
+// =======================
+const themeToggle = document.getElementById("theme-toggle");
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+    themeToggle.textContent = "☀️ Ativar modo claro";
+  } else {
+    themeToggle.textContent = "🌙 Ativar modo escuro";
+  }
+});

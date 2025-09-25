@@ -170,6 +170,16 @@ footer p:nth-child(2) {
   display: none;
 }
 
+/* tema escuro */
+.dark-mode {
+  --background-color: #121212;
+  --text-color: #000000;
+  --primary-color: #114570;
+  --secondary-color: #0a3152;
+  --secondary-color-dark: #062036;
+}
+
+
 /* responsive design for medium screens */
 
 @media (max-width: 905px) {
