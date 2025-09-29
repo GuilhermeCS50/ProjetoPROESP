@@ -88,6 +88,19 @@ const resumeButton = document.getElementById("resume-speak");
 const nextButton = document.getElementById("next-speak");
 const prevButton = document.getElementById("prev-speak");
 
+
+// Atualizar frases sempre que houver mudança na página
+function updateSentences() {
+  sentences = document.body.innerText.split(/(?<=[.!?])\s+/);
+}
+
+// Atualiza ao clicar em "Mostrar mais"
+document.querySelectorAll(".toggle-button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    setTimeout(updateSentences, 300); // espera abrir o conteúdo
+  });
+});
+
 function speakSentence(index) {
   if (index < 0 || index >= sentences.length) return;
   currentIndex = index;
