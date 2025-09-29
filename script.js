@@ -30,3 +30,140 @@ toggleButtons.forEach((button) => {
     button.setAttribute("data-visible", isContentVisible);
   });
 });
+
+// =======================
+// botão de troca de tema (robusto, com localStorage)
+// =======================
+document.addEventListener('DOMContentLoaded', () => {
+  const themeToggle = document.getElementById('theme-toggle');
+  if (!themeToggle) return; // se não existir, sai silenciosamente
+
+  const applyTheme = (theme) => {
+    if (theme === 'dark') {
+      document.body.classList.add('dark-mode');
+      themeToggle.textContent = '☀️ Ativar modo claro';
+    } else {
+      document.body.classList.remove('dark-mode');
+      themeToggle.textContent = '🌙 Ativar modo escuro';
+    }
+  };
+
+  // pega tema salvo ou usa preferência do sistema como fallback
+  const saved = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  applyTheme(saved);
+
+  themeToggle.addEventListener('click', () => {
+    const isDark = document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    themeToggle.textContent = isDark ? '☀️ Ativar modo claro' : '🌙 Ativar modo escuro';
+  });
+});
+
+const toggleButton = document.getElementById("darkModeToggle");
+
+if (toggleButton) {
+  toggleButton.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+  });
+
+  if (localStorage.getItem("darkMode") === "true") {
+    document.body.classList.add("dark-mode");
+  }
+}
+
+
+
+// =======================
+// Leitor de tela básico com controles
+// =======================
+let utterance;
+let sentences = [];
+let currentIndex = 0;
+
+const speakButton = document.getElementById("speak-page");
+const stopButton = document.getElementById("stop-speak");
+const pauseButton = document.getElementById("pause-speak");
+const resumeButton = document.getElementById("resume-speak");
+const nextButton = document.getElementById("next-speak");
+const prevButton = document.getElementById("prev-speak");
+
+
+// Atualizar frases sempre que houver mudança na página
+function updateSentences() {
+  sentences = document.body.innerText.split(/(?<=[.!?])\s+/);
+}
+
+// Atualiza ao clicar em "Mostrar mais"
+document.querySelectorAll(".toggle-button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    setTimeout(updateSentences, 300); // espera abrir o conteúdo
+  });
+});
+
+function speakSentence(index) {
+  if (index < 0 || index >= sentences.length) return;
+  currentIndex = index;
+  if (utterance) speechSynthesis.cancel();
+
+  utterance = new SpeechSynthesisUtterance(sentences[currentIndex]);
+  utterance.lang = "pt-BR";
+
+  utterance.onend = () => {
+    if (currentIndex < sentences.length - 1) {
+      currentIndex++;
+      speakSentence(currentIndex);
+    }
+  };
+
+  speechSynthesis.speak(utterance);
+}
+
+if (speakButton) {
+  speakButton.addEventListener("click", () => {
+    sentences = document.body.innerText.split(/(?<=[.!?])\s+/);
+    currentIndex = 0;
+    speakSentence(currentIndex);
+  });
+}
+
+if (stopButton) {
+  stopButton.addEventListener("click", () => speechSynthesis.cancel());
+}
+
+if (pauseButton) {
+  pauseButton.addEventListener("click", () => {
+    if (speechSynthesis.speaking && !speechSynthesis.paused) {
+      speechSynthesis.pause();
+    }
+  });
+}
+
+if (resumeButton) {
+  resumeButton.addEventListener("click", () => {
+    if (speechSynthesis.paused) {
+      speechSynthesis.resume();
+    }
+  });
+}
+
+if (nextButton) {
+  nextButton.addEventListener("click", () => {
+    if (currentIndex < sentences.length - 1) {
+      currentIndex++;
+      speechSynthesis.cancel();
+      speakSentence(currentIndex);
+    }
+  });
+}
+
+if (prevButton) {
+  prevButton.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      speechSynthesis.cancel();
+      speakSentence(currentIndex);
+    }
+  });
+}
+

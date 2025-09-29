@@ -170,6 +170,16 @@ footer p:nth-child(2) {
   display: none;
 }
 
+/* tema escuro */
+.dark-mode {
+  --background-color: #121212;
+  --text-color: #000000;
+  --primary-color: #114570;
+  --secondary-color: #0a3152;
+  --secondary-color-dark: #062036;
+}
+
+
 /* responsive design for medium screens */
 
 @media (max-width: 905px) {
@@ -245,3 +255,96 @@ footer p:nth-child(2) {
     display: block;
   }
 }
+
+/* Estilo padrão dos cards */
+.card {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Quando estiver no modo escuro */
+body.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+  box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+}
+
+
+
+#theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2000;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: var(--border-radius);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+
+#theme-toggle:hover {
+  background-color: var(--secondary-color-dark);
+}
+
+
+#accessibility-tools {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: white;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 2000;
+  max-width: 235px;
+  font-size: 0.85rem;
+}
+
+#accessibility-tools button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: var(--border-radius);
+  color: white;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+
+#accessibility-tools button:hover {
+  background-color: var(--secondary-color-dark);
+}
+
+#tts-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+#tts-controls button {
+  flex: 1 1 auto;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.3s;
+}
+
+#tts-controls button:hover {
+  background-color: var(--secondary-color-dark);
+}
+
