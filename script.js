@@ -34,28 +34,28 @@ toggleButtons.forEach((button) => {
 // =======================
 // botão de troca de tema (robusto, com localStorage)
 // =======================
-document.addEventListener('DOMContentLoaded', () => {
-  const themeToggle = document.getElementById('theme-toggle');
+document.addEventListener("DOMContentLoaded", () => {
+  const themeToggle = document.getElementById("theme-toggle");
   if (!themeToggle) return; // se não existir, sai silenciosamente
 
   const applyTheme = (theme) => {
-    if (theme === 'dark') {
-      document.body.classList.add('dark-mode');
-      themeToggle.textContent = '☀️ Ativar modo claro';
+    if (theme === "dark") {
+      document.body.classList.add("dark-mode");
+      themeToggle.textContent = "☀️";
     } else {
-      document.body.classList.remove('dark-mode');
-      themeToggle.textContent = '🌙 Ativar modo escuro';
+      document.body.classList.remove("dark-mode");
+      themeToggle.textContent = "🌙";
     }
   };
 
   // pega tema salvo ou usa preferência do sistema como fallback
-  const saved = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const saved = localStorage.getItem("theme") || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
   applyTheme(saved);
 
-  themeToggle.addEventListener('click', () => {
-    const isDark = document.body.classList.toggle('dark-mode');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    themeToggle.textContent = isDark ? '☀️ Ativar modo claro' : '🌙 Ativar modo escuro';
+  themeToggle.addEventListener("click", () => {
+    const isDark = document.body.classList.toggle("dark-mode");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    themeToggle.textContent = isDark ? "☀️" : "🌙 ";
   });
 });
 
@@ -72,8 +72,6 @@ if (toggleButton) {
   }
 }
 
-
-
 // =======================
 // Leitor de tela básico com controles
 // =======================
@@ -88,14 +86,13 @@ const resumeButton = document.getElementById("resume-speak");
 const nextButton = document.getElementById("next-speak");
 const prevButton = document.getElementById("prev-speak");
 
-
 // Atualizar frases sempre que houver mudança na página
 function updateSentences() {
   sentences = document.body.innerText.split(/(?<=[.!?])\s+/);
 }
 
 // Atualiza ao clicar em "Mostrar mais"
-document.querySelectorAll(".toggle-button").forEach(btn => {
+document.querySelectorAll(".toggle-button").forEach((btn) => {
   btn.addEventListener("click", () => {
     setTimeout(updateSentences, 300); // espera abrir o conteúdo
   });
@@ -131,28 +128,31 @@ if (stopButton) {
   stopButton.addEventListener("click", () => speechSynthesis.cancel());
 }
 
-if (pauseButton) {
-  pauseButton.addEventListener("click", () => {
-    if (speechSynthesis.speaking && !speechSynthesis.paused) {
-      speechSynthesis.pause();
-    }
-  });
-}
+let pausedIndex = null;
 
-if (resumeButton) {
-  resumeButton.addEventListener("click", () => {
-    if (speechSynthesis.paused) {
-      speechSynthesis.resume();
-    }
-  });
-}
+pauseButton.addEventListener("click", () => {
+  if (speechSynthesis.speaking && !speechSynthesis.paused) {
+    pausedIndex = currentIndex;
+    speechSynthesis.pause();
+  }
+});
+
+resumeButton.addEventListener("click", () => {
+  if (speechSynthesis.paused) {
+    speechSynthesis.resume();
+  } else if (pausedIndex !== null) {
+    speakSentence(pausedIndex); // reinicia dali
+    pausedIndex = null;
+  }
+});
+
 
 if (nextButton) {
   nextButton.addEventListener("click", () => {
     if (currentIndex < sentences.length - 1) {
       currentIndex++;
       speechSynthesis.cancel();
-      speakSentence(currentIndex);
+      setTimeout(() => speakSentence(currentIndex), 100);
     }
   });
 }
@@ -162,8 +162,7 @@ if (prevButton) {
     if (currentIndex > 0) {
       currentIndex--;
       speechSynthesis.cancel();
-      speakSentence(currentIndex);
+      setTimeout(() => speakSentence(currentIndex), 100);
     }
   });
 }
-
