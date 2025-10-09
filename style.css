@@ -6,7 +6,7 @@
   --card-background-color: white;
   --font-family: Verdana, sans-serif;
   --font-size: 1.05rem;
-  --line-height: 2;
+  --line-height: 1.75;
   --primary-color: #419d45;
   --secondary-color-dark: #2e7d32;
   --secondary-color: #388e3c;
@@ -29,7 +29,7 @@
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  scroll-margin-top: 6rem;
+  scroll-margin-top: 5.75rem;
   transition: background-color 0.3s;
 }
 
@@ -116,8 +116,16 @@ main {
   color: var(--primary-color);
 }
 
-.card h3 {
+.card h3,
+.card h4,
+.card > p {
   margin-top: 1rem;
+}
+
+.card h2 + p,
+.card h3 + p,
+.card h4 + p {
+  margin-top: 0;
 }
 
 .card ul {
@@ -126,6 +134,53 @@ main {
 
 .card li a {
   color: var(--primary-color);
+}
+
+/* table styles */
+
+table {
+  background-color: var(--card-background-color);
+  border-collapse: collapse;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+th,
+td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+th {
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.dark-mode table {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode th {
+  background-color: var(--secondary-color-dark);
+}
+
+.dark-mode tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 /* quiz styles */
@@ -279,6 +334,21 @@ footer p:nth-child(2) {
 
   .card h3 {
     font-size: 1rem;
+  }
+
+  /* adjust table layout for smaller screens */
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+  }
+
+  th {
+    text-align: center;
   }
 
   /* adjust quiz layout for smaller screens */
