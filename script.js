@@ -166,3 +166,57 @@ if (prevButton) {
     }
   });
 }
+
+// === Botão de acessibilidade aumentar texto ===
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.documentElement;
+  const btnPlus = document.getElementById("font-plus");
+  const btnMinus = document.getElementById("font-minus");
+  const btnReset = document.getElementById("font-reset");
+
+  const DEFAULT_REM = 1.05;
+  const STEP = 0.1;
+  const MIN = 0.8;
+  const MAX = 2.2;
+
+  const saved = localStorage.getItem("fontSizeRem");
+  if (saved) {
+    root.style.setProperty("--font-size", `${saved}rem`);
+  } else {
+    // garante que a var exista para quem abre direto uma página interna
+    if (!getComputedStyle(root).getPropertyValue("--font-size").trim()) {
+      root.style.setProperty("--font-size", `${DEFAULT_REM}rem`);
+    }
+  }
+
+  const getCurrentRem = () => {
+    const raw = getComputedStyle(root).getPropertyValue("--font-size").trim();
+    return parseFloat(raw || DEFAULT_REM);
+  };
+
+  const applyRem = (rem) => {
+    const clamped = Math.max(MIN, Math.min(rem, MAX));
+    root.style.setProperty("--font-size", `${clamped}rem`);
+    localStorage.setItem("fontSizeRem", String(clamped));
+  };
+
+  if (btnPlus) {
+    btnPlus.addEventListener("click", () => {
+      const next = getCurrentRem() + STEP;
+      applyRem(Number(next.toFixed(2)));
+    });
+  }
+
+  if (btnMinus) {
+    btnMinus.addEventListener("click", () => {
+      const next = getCurrentRem() - STEP;
+      applyRem(Number(next.toFixed(2)));
+    });
+  }
+
+  if (btnReset) {
+    btnReset.addEventListener("click", () => {
+      applyRem(DEFAULT_REM);
+    });
+  }
+});
