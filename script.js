@@ -31,12 +31,11 @@ toggleButtons.forEach((button) => {
   });
 });
 
-// =======================
-// botão de troca de tema (robusto, com localStorage)
-// =======================
+// script to handle dark mode toggle
+
 document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("theme-toggle");
-  if (!themeToggle) return; // se não existir, sai silenciosamente
+  if (!themeToggle) return; // if button not found, exit
 
   const applyTheme = (theme) => {
     if (theme === "dark") {
@@ -48,7 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // pega tema salvo ou usa preferência do sistema como fallback
+  // load saved theme or system preference
+
   const saved = localStorage.getItem("theme") || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
   applyTheme(saved);
 
@@ -72,9 +72,8 @@ if (toggleButton) {
   }
 }
 
-// =======================
-// Leitor de tela básico com controles
-// =======================
+// script to handle text-to-speech functionality
+
 let utterance;
 let sentences = [];
 let currentIndex = 0;
@@ -86,15 +85,17 @@ const resumeButton = document.getElementById("resume-speak");
 const nextButton = document.getElementById("next-speak");
 const prevButton = document.getElementById("prev-speak");
 
-// Atualizar frases sempre que houver mudança na página
+// update sentences when content changes
+
 function updateSentences() {
   sentences = document.body.innerText.split(/(?<=[.!?])\s+/);
 }
 
-// Atualiza ao clicar em "Mostrar mais"
+// update sentences on toggle button clicks
+
 document.querySelectorAll(".toggle-button").forEach((btn) => {
   btn.addEventListener("click", () => {
-    setTimeout(updateSentences, 300); // espera abrir o conteúdo
+    setTimeout(updateSentences, 300); // wait for content to update
   });
 });
 
@@ -141,11 +142,10 @@ resumeButton.addEventListener("click", () => {
   if (speechSynthesis.paused) {
     speechSynthesis.resume();
   } else if (pausedIndex !== null) {
-    speakSentence(pausedIndex); // reinicia dali
+    speakSentence(pausedIndex); // restart from paused index
     pausedIndex = null;
   }
 });
-
 
 if (nextButton) {
   nextButton.addEventListener("click", () => {
@@ -167,23 +167,24 @@ if (prevButton) {
   });
 }
 
-// === Botão de acessibilidade aumentar texto ===
+// script to handle font size adjustments
+
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.documentElement;
-  const btnPlus = document.getElementById("font-plus");
-  const btnMinus = document.getElementById("font-minus");
-  const btnReset = document.getElementById("font-reset");
+  const btnPlus = document.getElementById("increase-font");
+  const btnMinus = document.getElementById("decrease-font");
+  const btnReset = document.getElementById("reset-font");
 
   const DEFAULT_REM = 1.05;
   const STEP = 0.1;
-  const MIN = 0.8;
-  const MAX = 2.2;
+  const MIN = 0.9;
+  const MAX = 2.0;
 
   const saved = localStorage.getItem("fontSizeRem");
   if (saved) {
     root.style.setProperty("--font-size", `${saved}rem`);
   } else {
-    // garante que a var exista para quem abre direto uma página interna
+    // garantees that the variable exists for those who open a direct internal page
     if (!getComputedStyle(root).getPropertyValue("--font-size").trim()) {
       root.style.setProperty("--font-size", `${DEFAULT_REM}rem`);
     }
